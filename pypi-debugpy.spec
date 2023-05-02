@@ -5,14 +5,12 @@
 #
 Name     : pypi-debugpy
 Version  : 1.6.7
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/92/d4/437fa53a5a0e5a04d77e12b7eeac1df003e33834f85ddd4513fe2df31e13/debugpy-1.6.7.zip
 Source0  : https://files.pythonhosted.org/packages/92/d4/437fa53a5a0e5a04d77e12b7eeac1df003e33834f85ddd4513fe2df31e13/debugpy-1.6.7.zip
 Summary  : An implementation of the Debug Adapter Protocol for Python
 Group    : Development/Tools
 License  : MIT
-Requires: pypi-debugpy-filemap = %{version}-%{release}
-Requires: pypi-debugpy-lib = %{version}-%{release}
 Requires: pypi-debugpy-license = %{version}-%{release}
 Requires: pypi-debugpy-python = %{version}-%{release}
 Requires: pypi-debugpy-python3 = %{version}-%{release}
@@ -25,24 +23,6 @@ BuildRequires : buildreq-distutils3
 # Parts of IPython, files from: https://github.com/ipython/ipython/tree/rel-1.0.0/IPython
 # The files in this package are extracted from IPython to aid the main loop integration
 # See tests_mainloop for some manually runable tests
-
-%package filemap
-Summary: filemap components for the pypi-debugpy package.
-Group: Default
-
-%description filemap
-filemap components for the pypi-debugpy package.
-
-
-%package lib
-Summary: lib components for the pypi-debugpy package.
-Group: Libraries
-Requires: pypi-debugpy-license = %{version}-%{release}
-Requires: pypi-debugpy-filemap = %{version}-%{release}
-
-%description lib
-lib components for the pypi-debugpy package.
-
 
 %package license
 Summary: license components for the pypi-debugpy package.
@@ -64,7 +44,6 @@ python components for the pypi-debugpy package.
 %package python3
 Summary: python3 components for the pypi-debugpy package.
 Group: Default
-Requires: pypi-debugpy-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(debugpy)
 
@@ -84,15 +63,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680793311
+export SOURCE_DATE_EPOCH=1683036994
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
@@ -128,14 +107,6 @@ popd
 %files
 %defattr(-,root,root,-)
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-pypi-debugpy
-
-%files lib
-%defattr(-,root,root,-)
-/usr/share/clear/optimized-elf/other*
-
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pypi-debugpy/7d73b90c1964aabb829818f09bab6a02539765c6
@@ -146,4 +117,5 @@ popd
 
 %files python3
 %defattr(-,root,root,-)
+/V3/usr/lib/python3*/*
 /usr/lib/python3*/*
