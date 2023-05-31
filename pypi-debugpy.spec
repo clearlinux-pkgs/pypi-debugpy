@@ -5,7 +5,7 @@
 #
 Name     : pypi-debugpy
 Version  : 1.6.7
-Release  : 28
+Release  : 29
 URL      : https://files.pythonhosted.org/packages/92/d4/437fa53a5a0e5a04d77e12b7eeac1df003e33834f85ddd4513fe2df31e13/debugpy-1.6.7.zip
 Source0  : https://files.pythonhosted.org/packages/92/d4/437fa53a5a0e5a04d77e12b7eeac1df003e33834f85ddd4513fe2df31e13/debugpy-1.6.7.zip
 Summary  : An implementation of the Debug Adapter Protocol for Python
@@ -15,6 +15,8 @@ Requires: pypi-debugpy-license = %{version}-%{release}
 Requires: pypi-debugpy-python = %{version}-%{release}
 Requires: pypi-debugpy-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(setuptools)
+BuildRequires : pypi(wheel)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -63,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683036994
+export SOURCE_DATE_EPOCH=1685560536
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
