@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-debugpy
-Version  : 1.6.7
-Release  : 29
-URL      : https://files.pythonhosted.org/packages/92/d4/437fa53a5a0e5a04d77e12b7eeac1df003e33834f85ddd4513fe2df31e13/debugpy-1.6.7.zip
-Source0  : https://files.pythonhosted.org/packages/92/d4/437fa53a5a0e5a04d77e12b7eeac1df003e33834f85ddd4513fe2df31e13/debugpy-1.6.7.zip
+Version  : 1.6.8
+Release  : 30
+URL      : https://files.pythonhosted.org/packages/d7/16/3513c1c54e700d940bf3a948d48101bcfd3ebf22f9435ce54daa09f5ec69/debugpy-1.6.8.zip
+Source0  : https://files.pythonhosted.org/packages/d7/16/3513c1c54e700d940bf3a948d48101bcfd3ebf22f9435ce54daa09f5ec69/debugpy-1.6.8.zip
 Summary  : An implementation of the Debug Adapter Protocol for Python
 Group    : Development/Tools
 License  : MIT
@@ -54,10 +54,10 @@ python3 components for the pypi-debugpy package.
 
 
 %prep
-%setup -q -n debugpy-1.6.7
-cd %{_builddir}/debugpy-1.6.7
+%setup -q -n debugpy-1.6.8
+cd %{_builddir}/debugpy-1.6.8
 pushd ..
-cp -a debugpy-1.6.7 buildavx2
+cp -a debugpy-1.6.8 buildavx2
 popd
 
 %build
@@ -65,7 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685560536
+export SOURCE_DATE_EPOCH=1691077078
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
