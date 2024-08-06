@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-debugpy
-Version  : 1.8.3
-Release  : 39
-URL      : https://files.pythonhosted.org/packages/8b/7f/b64d60f8bb3d5b84ca9b63ba7cd7dc200f91a28183c4e5e813dad858392d/debugpy-1.8.3.zip
-Source0  : https://files.pythonhosted.org/packages/8b/7f/b64d60f8bb3d5b84ca9b63ba7cd7dc200f91a28183c4e5e813dad858392d/debugpy-1.8.3.zip
+Version  : 1.8.5
+Release  : 40
+URL      : https://files.pythonhosted.org/packages/ea/f9/61c325a10ded8dc3ddc3e7cd2ed58c0b15b2ef4bf8b4bf2930ee98ed59ee/debugpy-1.8.5.zip
+Source0  : https://files.pythonhosted.org/packages/ea/f9/61c325a10ded8dc3ddc3e7cd2ed58c0b15b2ef4bf8b4bf2930ee98ed59ee/debugpy-1.8.5.zip
 Summary  : An implementation of the Debug Adapter Protocol for Python
 Group    : Development/Tools
 License  : MIT
@@ -66,10 +66,10 @@ python3 components for the pypi-debugpy package.
 
 
 %prep
-%setup -q -n debugpy-1.8.3
-cd %{_builddir}/debugpy-1.8.3
+%setup -q -n debugpy-1.8.5
+cd %{_builddir}/debugpy-1.8.5
 pushd ..
-cp -a debugpy-1.8.3 buildavx2
+cp -a debugpy-1.8.5 buildavx2
 popd
 
 %build
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1722877030
+export SOURCE_DATE_EPOCH=1722958149
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -123,7 +123,6 @@ export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-debugpy
 cp %{_builddir}/debugpy-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-debugpy/bdaa8bcf57470fae2e892cd2848a7aba3664edf6 || :
-cp %{_builddir}/debugpy-%{version}/src/debugpy/_vendored/pydevd/_pydevd_frame_eval/vendored/bytecode-0.13.0.dev0.dist-info/COPYING %{buildroot}/usr/share/package-licenses/pypi-debugpy/7d73b90c1964aabb829818f09bab6a02539765c6 || :
 python3 -m installer --destdir=%{buildroot} dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -147,7 +146,6 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pypi-debugpy/7d73b90c1964aabb829818f09bab6a02539765c6
 /usr/share/package-licenses/pypi-debugpy/bdaa8bcf57470fae2e892cd2848a7aba3664edf6
 
 %files python

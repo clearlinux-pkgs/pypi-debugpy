@@ -1,5 +1,5 @@
 PKG_NAME := pypi-debugpy
-URL = https://files.pythonhosted.org/packages/8b/7f/b64d60f8bb3d5b84ca9b63ba7cd7dc200f91a28183c4e5e813dad858392d/debugpy-1.8.3.zip
+URL = https://files.pythonhosted.org/packages/ea/f9/61c325a10ded8dc3ddc3e7cd2ed58c0b15b2ef4bf8b4bf2930ee98ed59ee/debugpy-1.8.5.zip
 ARCHIVES = 
 
 include ../common/Makefile.common
