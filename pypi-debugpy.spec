@@ -7,7 +7,7 @@
 #
 Name     : pypi-debugpy
 Version  : 1.8.12
-Release  : 47
+Release  : 48
 URL      : https://files.pythonhosted.org/packages/68/25/c74e337134edf55c4dfc9af579eccb45af2393c40960e2795a94351e8140/debugpy-1.8.12.tar.gz
 Source0  : https://files.pythonhosted.org/packages/68/25/c74e337134edf55c4dfc9af579eccb45af2393c40960e2795a94351e8140/debugpy-1.8.12.tar.gz
 Summary  : An implementation of the Debug Adapter Protocol for Python
